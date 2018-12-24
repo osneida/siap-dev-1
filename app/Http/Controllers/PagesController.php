@@ -7,7 +7,8 @@ use App\Http\Requests;
 
 class PagesController extends Controller
 {
-  public function home() {
+  
+  public function inicio() {
     return view('home');
   }
 

@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateResponsablesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('responsables', function (Blueprint $table) {            
+            $table->increments('id');
+            $table->string('codigo',8)->nullable();
+            $table->string('nombre',32)->nullable();
+            $table->string('apellido_paterno',32)->nullable();
+            $table->string('apellido_materno',32);
+            $table->string('email')->unique();
+            $table->string('estacion',64)->nullable();
+            $table->timestamps();
+            $table->timestamp('fecha_baja');
+            $table->timestamp('fecha_primer_envio_correo');
+            $table->timestamp('fecha_ultimo_envio_correo');
+            $table->boolean('estatus')->default(false);
+            //$table->rememberToken();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('responsables');
+    }
+}

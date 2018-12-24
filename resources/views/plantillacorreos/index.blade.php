@@ -20,19 +20,20 @@
         </tr>
       </thead>
       <tbody>
+
         @foreach($plantillacorreos as $Plantillacorreo)
         <tr>
           <th scope="row">{{ $Plantillacorreo->id }}</th>
-          <td>{{ $Plantillacorreo->memo }}</td>
+          <td width="40%">{{ $Plantillacorreo->memo }}</td>
           <td>{{ $Plantillacorreo->user }}</td>
           <td>{{ $Plantillacorreo->updated_at }}</td>          
           <td>
             <form action="{{ route('plantillacorreos.destroy', $Plantillacorreo) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <a href="{{route('plantillacorreos.show',$Plantillacorreo)}}" class="btn btn-link"><span class="oi oi-eye"></span></a>
-                <a href="{{route('plantillacorreos.edit',$Plantillacorreo)}}" class="btn btn-link"><span class="oi oi-pencil"></span></a>                         
-                <button type="submit" class="btn btn-link"><span class="oi oi-trash"></span></button>
+                <a href="{{route('plantillacorreos.show',$Plantillacorreo)}}" class="btn btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                <a href="{{route('plantillacorreos.edit',$Plantillacorreo)}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>                         
+                <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
             </form>              
           </td>
         </tr>

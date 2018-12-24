@@ -10,7 +10,6 @@ class PropietarioController extends Controller
 {
     public function index()
     {
-
         $propietarios = Propietario::all()->sortBy('id');
         $title = 'Listado de Clientes';       
         return view('propietarios.index',compact('title','propietarios'));
@@ -48,7 +47,6 @@ class PropietarioController extends Controller
             'apellido_paterno.min' => 'El campo Apellido Paterno debe escribir al menos 3 caracteres',
             'email.required' => 'El campo Correo Electrónico es obligatorio'
         ]);
-
         Propietario::create([
             'codigo' => $data['codigo'],
             'nombre' => $data['nombre'],
@@ -92,7 +90,6 @@ class PropietarioController extends Controller
             'apellido_paterno.min' => 'El campo Apellido Paterno debe escribir al menos 3 caracteres',
             'email.required' => 'El campo Correo Electrónico es obligatorio'
         ]);
-
         $propietario->update($data);
         return redirect()->route('propietarios.show',['propietario'=>$propietario]);
     }
