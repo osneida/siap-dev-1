@@ -17,7 +17,6 @@ class Estacion extends Model
         'hidroneumaticos','numero_banos','puestos_estacionamiento','puestos_estacionamiento_disc','cisterna_aguas_blancas','extintores','area_facturacion',
         'surtidor_aire','surtidor_agua'
 	];
-        
         public function profile()
         {
             return $this->hasMany(Tanque::class);

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\;
+namespace App\Http\Controllers\Personal;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Personal;
+use App\Personal\Personal;
 use Illuminate\Http\Request;
 
 class PersonalController extends Controller
@@ -56,7 +56,7 @@ class PersonalController extends Controller
             $personal = Personal::latest()->paginate($perPage);
         }
 
-        return view('personal.personal.index', compact('personal'));
+        return view('personal.index', compact('personal'));
     }
 
     /**
@@ -66,7 +66,7 @@ class PersonalController extends Controller
      */
     public function create()
     {
-        return view('personal.personal.create');
+        return view('personal.create');
     }
 
     /**
@@ -83,7 +83,7 @@ class PersonalController extends Controller
         
         Personal::create($requestData);
 
-        return redirect('personal/personal')->with('flash_message', 'Personal added!');
+        return redirect('personal')->with('flash_message', 'Personal added!');
     }
 
     /**
@@ -97,7 +97,7 @@ class PersonalController extends Controller
     {
         $personal = Personal::findOrFail($id);
 
-        return view('personal.personal.show', compact('personal'));
+        return view('personal.show', compact('personal'));
     }
 
     /**
@@ -111,7 +111,7 @@ class PersonalController extends Controller
     {
         $personal = Personal::findOrFail($id);
 
-        return view('personal.personal.edit', compact('personal'));
+        return view('personal.edit', compact('personal'));
     }
 
     /**
@@ -130,7 +130,7 @@ class PersonalController extends Controller
         $personal = Personal::findOrFail($id);
         $personal->update($requestData);
 
-        return redirect('personal/personal')->with('flash_message', 'Personal updated!');
+        return redirect('personal')->with('flash_message', 'Personal updated!');
     }
 
     /**
@@ -144,6 +144,6 @@ class PersonalController extends Controller
     {
         Personal::destroy($id);
 
-        return redirect('personal/personal')->with('flash_message', 'Personal deleted!');
+        return redirect('personal')->with('flash_message', 'Personal deleted!');
     }
 }

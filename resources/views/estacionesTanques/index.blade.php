@@ -36,8 +36,9 @@
             <form action="" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <a href="{{route('estacionesUbicacionContacto.edit',$estacion)}}" class="btn btn-primary ">Actualizar Ubicación y Contacto</a>
-                <a href="{{route('estacionesUbicacionContacto.show',$estacion)}}" class="btn btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+
+                <a href="{{route('estacionesTanques.edit',$estacion)}}" class="btn btn-primary ">Actualizar Tanques</a>
+                <a href="{{route('estacionesTanques.show',$estacion)}}" class="btn btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
             </form>
           </td>
         </tr>

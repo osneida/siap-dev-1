@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Personal_con;
+namespace App\Http\Controllers\Personal\Personal_con;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\aspecto_familiar;
-use App\Personal_com;
+use App\Personal\aspecto_familiar;
+use App\Personal\Personal_com;
 use Illuminate\Http\Request;
 
 class Personal_comController extends Controller

@@ -17,10 +17,11 @@ Route::get('/test/datepicker', function () {
 });
 
 /* Estaciones de Servicio */
-Route::get('/registro', 'EstacionController@create')->name('estaciones.create');
+/* Estaciones de Servicio */
 Route::get('/estaciones', 'EstacionController@index')->name('estaciones.index');
 Route::get('/estaciones/{estacion}', 'EstacionController@show')->where('estacion','\d+')->name('estaciones.show');
-Route::get('/estaciones/nuevo', 'EstacionController@create')->name('estaciones.create');
+//Route::get('/estaciones/nuevo', 'EstacionController@create')->name('estaciones.create');
+Route::get('/registro', 'EstacionController@create')->name('estaciones.create');
 Route::get('/estaciones/{estacion}/editar', 'EstacionController@edit')->name('estaciones.edit');
 Route::put('/estaciones/{estacion}', 'EstacionController@update');
 Route::post('/estaciones', 'EstacionController@store');
@@ -207,40 +208,39 @@ Route::get('/comunicaciones/{comunicacion}/edit', 'ComunicacionController@edit')
 /**************************************************************************************************/
 /* Pedro Nieves */
 /* Rutas Personal */
-Route::get('/personal', 'PersonalController@index')->name('personal.index');
-Route::get('/personal/{persona}', 'PersonalController@show')->where('personal','\d+')->name('personal.show');
-Route::get('/personal/nuevo', 'PersonalController@create')->name('personal.create');
-Route::get('/personal/{persona}/editar', 'PersonalController@edit')->name('personal.edit');
-Route::put('/personal/{persona}', 'PersonalController@update');
-Route::post('/personal', 'PersonalController@store');
-Route::delete('/personal/{persona}', 'PersonalController@destroy')->name('personal.destroy');
+Route::get('/personal', 'Personal\PersonalController@index')->name('personal.index');
+Route::get('/personal/{persona}', 'Personal\PersonalController@show')->where('personal','\d+')->name('personal.show');
+Route::get('/personal/nuevo', 'Personal\PersonalController@create')->name('personal.create');
+Route::get('/personal/{persona}/editar', 'Personal\PersonalController@edit')->name('personal.edit');
+Route::put('/personal/{persona}', 'Personal\PersonalController@update');
+Route::post('/personal', 'Personal\PersonalController@store');
+Route::delete('/personal/{persona}', 'Personal\PersonalController@destroy')->name('personal.destroy');
 //++++++++++++++++++++Programa de capacitacion++++++++++++++++++
-Route::get('pdfprograma','pdfprogramaController@getIndex');
-Route::get('pdfprograma/generar','pdfprogramaController@getGenerar');
+Route::get('pdfprograma','Personal\pdfprogramaController@getIndex');
+Route::get('pdfprograma/generar','Personal\pdfprogramaController@getGenerar');
 //+++++++++++++++++++++++++++programa de capacitacion++++++++++++++++++++++++++++++++++++++++
-Route::resource('programa_de_capacitaciones', 'Personal\\Programa_de_capacitacionesController');
-Route::resource('programa_de_capacitaciones_l', 'Personal\\Programa_de_capacitaciones_lController');
-
-Route::resource('personal', 'PersonalController');
-Route::resource('proceso_de_induccion', 'Proceso_de_inducciones\\Proceso_de_induccionController');
-Route::resource('personal_com', 'Personal_con\\Personal_comController');
+Route::resource('programa_de_capacitaciones', 'Capacitacion\\Programa_de_capacitacionesController');
+Route::resource('programa_de_capacitaciones_l', 'Capacitacion\\Programa_de_capacitaciones_lController');
+//
+Route::resource('personal', 'Personal\PersonalController');
+Route::resource('proceso_de_induccion', 'Personal\\Proceso_de_induccionController');
+Route::resource('personal_com', 'Personal\\Personal_comController');
 //+++++++++++++++++++++++++++descripcion del puesto+++++++++++++++++++++++++++++++++++++++
-Route::resource('descripcion_puesto', 'Descripcion_puesto\\Descripcion_puestoController');
-Route::get('/descripcion_puesto/pdf','Descripcion_puesto\\Descripcion_puestoController@getIndex');
-Route::get('/descripcion_puesto/pdf/generar','Descripcion_puesto\\Descripcion_puestoController@getGenerar');
+Route::resource('descripcion_puesto', 'Personal\\Descripcion_puestoController');
+Route::get('/descripcion_puesto/pdf','Personal\\Descripcion_puestoController@getIndex');
+Route::get('/descripcion_puesto/pdf/generar','Personal\\Descripcion_puestoController@getGenerar');
 
 
+Route::resource('proceso_induccion', 'Personal\\proceso_induccionController');
+Route::get('/proceso_induccion/pdf','Personal\\proceso_induccionController@getIndex');
+Route::get('/proceso_induccion/pdf/generar','Personal\\proceso_induccionController@getGenerar');
 
-Route::resource('proceso_induccion', 'Proceso_induccion\\proceso_induccionController');
-Route::get('/proceso_induccion/pdf','Proceso_induccion\\proceso_induccionController@getIndex');
-Route::get('/proceso_induccion/pdf/generar','Proceso_induccion\\proceso_induccionController@getGenerar');
 
-
-Route::resource('acta_confidencial', 'Acta_confidencial\\acta_confidencialController');
-Route::get('/acta_confidencial/pdf','Acta_confidencial\\acta_confidencialController@getIndex');
-Route::get('/acta_confidencial/pdf/generar','Acta_confidencial\\acta_confidencialController@getGenerar');
+Route::resource('acta_confidencial', 'Personal\\acta_confidencialController');
+Route::get('/acta_confidencial/pdf','Personal\\acta_confidencialController@getIndex');
+Route::get('/acta_confidencial/pdf/generar','Personal\\acta_confidencialController@getGenerar');
 Route::resource('menu', 'Menu\\menuController');
 Route::resource('menut', 'Menut\\menutController');
 Route::resource('head_documento', 'Head_documento\\head_documentoController');
-Route::resource('aspecto_familiar', 'Aspecto_familiar\\aspecto_familiarController');
+Route::resource('aspecto_familiar', 'Personal\\aspecto_familiarController');
 Route::resource('competencia', 'Competencia\\competenciaController');

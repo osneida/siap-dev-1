@@ -1,8 +1,8 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Personal;
 use Illuminate\Http\Request;
 use Mpdf\Mpdf;
-use App\Personal;
+use App\Personal\Personal;
  
 class PdfController extends Controller
 {

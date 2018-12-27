@@ -15,7 +15,7 @@
   
     <td rowspan="4">
 
-  <img src="{!! asset('SIAP_logo.png') !!}" alt="logo de la empresa " height="500" width="500"></td>
+  <img style="width:100px; height:100px;" src="{{ $estacion['logo'] }}" alt="logo de la empresa " height="500" width="500"></td>
      
    <div class="row justify-content-center"> <td rowspan="3"><h3 class="text-primary"> {{ $estacion['nombre'] }}</h3></td></div>
     <th>Código: {{ $codigoformato }} </th>

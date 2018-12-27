@@ -1,35 +1,30 @@
-@extends('layout')
+@extends('layouts.layout')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
+
+
+@section('title',"Personal")
 
 @section('content')
-    <div class="container">
-        <div class="row">
-         
+<a href="{{ url('/personal') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atras</button></a>
 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Crear Nuevo Personal</div>
-                    <div class="card-body">
-                        <a href="{{ url('/personal/personal') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atras</button></a>
-                        <br />
-                        <br />
-
-                        @if ($errors->any())
+<div class="card">
+    <h4 class="card-header">
+        Crear Personal
+    </h4>
+    <div class="card-body">
+    @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
                         @endif
+                        {!! Form::open(['url' => '/personal', 'class' => 'form-horizontal', 'files' => true]) !!}
 
-                        {!! Form::open(['url' => '/personal/personal', 'class' => 'form-horizontal', 'files' => true]) !!}
+@include ('personal.form', ['formMode' => 'create'])
 
-                        @include ('personal.personal.form', ['formMode' => 'create'])
-
-                        {!! Form::close() !!}
-
-                    </div>
-                </div>
-            </div>
-        </div>
+{!! Form::close() !!}
     </div>
+</div>
 @endsection

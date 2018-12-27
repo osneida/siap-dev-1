@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Personal;
+namespace App\Http\Controllers\Capacitacion;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Programa_de_capacitaciones_l;
-use App\Programa_de_capacitacione;
+use App\Capacitacion\Programa_de_capacitaciones_l;
+use App\Capacitacion\Programa_de_capacitacione;
 use Illuminate\Http\Request;
 
 class Programa_de_capacitacionesController extends Controller

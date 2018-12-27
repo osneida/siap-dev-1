@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Estacion;
 use App\Estado;
+use DB;
 
 class EstacionUbicacionContactoController extends Controller
 {
@@ -117,5 +118,6 @@ class EstacionUbicacionContactoController extends Controller
         $estados = Estado::all()->sortBy('id');        
         $id_estado = $estacion->estado_id;
         return view('estacionesUbicacionContacto.edit',compact('estacion','estados','id_estado'));
-    }        
+    }  
+
 }

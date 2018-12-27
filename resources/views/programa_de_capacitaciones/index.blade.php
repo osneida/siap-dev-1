@@ -14,7 +14,7 @@
                             <i class="fa fa-plus" aria-hidden="true"></i> Agregar Nuevo
                         </a>
 
-                        {!! Form::open(['method' => 'GET', 'url' => '/programa_de_capacitaciones', 'class' => 'form-inline my-2 my-lg-0 float-right', 'role' => 'search'])  !!}
+                        {!! Form::open(['method' => 'GET', 'url' => '/Capacitacion/programa_de_capacitaciones', 'class' => 'form-inline my-2 my-lg-0 float-right', 'role' => 'search'])  !!}
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Buscar..." value="{{ request('search') }}">
                             <span class="input-group-append">
@@ -41,7 +41,7 @@
                                         <td>{{ $item->nombre_trabajador }}</td><td>{{ $item->periodo_ejecucion }}</td><td>{{ $item->cargo_trabajador }}</td>
                                         <td>
                                             <a href="{{ url('/programa_de_capacitaciones/' . $item->id) }}" title="Ver"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
-                                            <a title="Generar PDF" href="{{ action('pdfprogramaController@getGenerar',['accion'=>'ver','tipo'=>'digital','id'=>$item->id]) }}"><button class="btn btn-warning btn-sm">Generar PDF</button></a>
+                                            <a title="Generar PDF" href="{{ action('Personal\pdfprogramaController@getGenerar',['accion'=>'ver','tipo'=>'digital','id'=>$item->id]) }}"><button class="btn btn-warning btn-sm">Generar PDF</button></a>
                                             <a href="{{ url('/programa_de_capacitaciones/' . $item->id . '/edit') }}" title="editar"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
