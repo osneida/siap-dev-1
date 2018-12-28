@@ -208,13 +208,9 @@ Route::get('/comunicaciones/{comunicacion}/edit', 'ComunicacionController@edit')
 /**************************************************************************************************/
 /* Pedro Nieves */
 /* Rutas Personal */
-Route::get('/personal', 'Personal\PersonalController@index')->name('personal.index');
-Route::get('/personal/{persona}', 'Personal\PersonalController@show')->where('personal','\d+')->name('personal.show');
-Route::get('/personal/nuevo', 'Personal\PersonalController@create')->name('personal.create');
-Route::get('/personal/{persona}/editar', 'Personal\PersonalController@edit')->name('personal.edit');
-Route::put('/personal/{persona}', 'Personal\PersonalController@update');
-Route::post('/personal', 'Personal\PersonalController@store');
-Route::delete('/personal/{persona}', 'Personal\PersonalController@destroy')->name('personal.destroy');
+Route::resource('personal_com', 'Personal_con\\Personal_comController');
+Route::get('/personal_com/pdf','Personal_con\\Personal_comController@getIndex');
+Route::get('/personal_com/pdf/generar','Personal_con\\Personal_comController@getGenerar');
 //++++++++++++++++++++Programa de capacitacion++++++++++++++++++
 Route::get('pdfprograma','Personal\pdfprogramaController@getIndex');
 Route::get('pdfprograma/generar','Personal\pdfprogramaController@getGenerar');
@@ -224,7 +220,7 @@ Route::resource('programa_de_capacitaciones_l', 'Capacitacion\\Programa_de_capac
 //
 Route::resource('personal', 'Personal\PersonalController');
 Route::resource('proceso_de_induccion', 'Personal\\Proceso_de_induccionController');
-Route::resource('personal_com', 'Personal\\Personal_comController');
+
 //+++++++++++++++++++++++++++descripcion del puesto+++++++++++++++++++++++++++++++++++++++
 Route::resource('descripcion_puesto', 'Personal\\Descripcion_puestoController');
 Route::get('/descripcion_puesto/pdf','Personal\\Descripcion_puestoController@getIndex');

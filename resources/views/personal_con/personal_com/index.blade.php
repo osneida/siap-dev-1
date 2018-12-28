@@ -31,6 +31,10 @@
                                         <td>{{ $item->nombre_apellido }}</td><td>{{ $item->nacimiento }}</td><td>{{ $item->sexo }}</td>
                                         <td>
                                             <a href="{{ url('/personal_com/' . $item->id) }}" title="View Personal_com"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                           
+                                            <a title="Generar PDF" href="{{ action('Personal_con\\Personal_comController@getGenerar',['accion'=>'ver','tipo'=>'digital','id'=>$item->id]) }}"><button class="btn btn-warning btn-sm">Generar PDF</button></a>
+                                            
+                                            
                                             <a href="{{ url('/personal_com/' . $item->id . '/edit') }}" title="Edit Personal_com"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
